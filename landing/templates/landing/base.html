@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startinger</title>
+    <!--Bulma-->
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}" />
+  </head>
+  <body>
+    <section class="hero is-dark is-large">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a
+                class="navbar-item title is-4 p-auto"
+                href="#"
+                style="height: 100%"
+                >Start-In-Germany</a
+              >
+              <span class="navbar-burger" data-target="navbarMenuHeroB">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+
+            <p class="navbar-item has-text-centered">
+              Юридическая помощь в Германии
+            </p>
+
+            <div id="navbarMenuHeroB" class="navbar-menu">
+              <div class="navbar-end">
+                <a
+                  class="navbar-item {% if navbar == 'home' %} is-active {% endif %}"
+                  href="{% url 'home' %}"
+                >
+                  Главная
+                </a>
+                <a
+                  class="navbar-item {% if navbar == 'services' %} is-active {% endif %}"
+                  href="{% url 'services' %}"
+                >
+                  Услуги
+                </a>
+                <a
+                  class="navbar-item {% if navbar == 'about' %} is-active {% endif %}"
+                  href="{% url 'about' %}"
+                >
+                  О нас
+                </a>
+                <a
+                  class="navbar-item {% if navbar == 'contact' %} is-active {% endif %}"
+                  href="{% url 'contact' %}"
+                >
+                  Контакты
+                </a>
+                <span class="navbar-item">
+                  <a
+                    class="button is-dark is-inverted"
+                    href="{% url 'quote' %}"
+                  >
+                    <span>Подать заявку</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!--Block-->
+    {% block quote%} {% endblock %} 
+    
+    <!--Block-->
+    {% block hero %} {% endblock %} 
+    
+    <!--Block-->
+    {% block learn_more %} {% endblock %} 
+    
+    <!--Block-->
+    {% block steps %} {% endblock %} 
+    
+    <!--Block-->
+    {% block services %} {% endblock %} 
+
+    <!--Block-->
+    {% block testimonials %} {% endblock %} 
+
+    <!--Block-->
+    {% block faq %} {% endblock %} 
+
+    <!--Block-->
+    {% block about %} {% endblock %} 
+
+    <!--Block-->
+    {% block contact %} {% endblock %}
+
+    <footer class="pt-6 pb-6 has-background-dark">
+      <div class="container">Footer</div>
+    </footer>
+  </body>
+</html>
