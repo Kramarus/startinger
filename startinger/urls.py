@@ -20,3 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('landing.urls'))
 ]
+
+admin.site.index_title = "Startinger"
+admin.site.site_header = "Startinger Admin"
+admin.site.site_title = "Dashboard"

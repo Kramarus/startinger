@@ -2,21 +2,26 @@
 
 <!--Hero Section-->
 {% block hero %}
-<section class="hero is-dark" style="height: 90vh;">
+<section class="hero is-dark" style="height: 90vh">
   <div class="hero-body">
     <div class="container has-text-left">
       <div class="columns is-vcentered pt-5 pb-5">
         <div class="column is-two-thirds-tablet">
           <h1 class="title">
-            Помощь с получением убежища в Германии для граждан России
+            <span>Помощь</span> <span>с получением</span> <span>убежища</span>
+            <span>в Германии</span> <span>для граждан России</span>
           </h1>
           <p class="subtitle">
             Полный комплект услуг: от встречи в аэропорту и до получения
             бесплатного жилья и ежемесячного денежного пособия
           </p>
           <div class="buttons">
-            <a href="{% url 'quote' %}" class="button is-large is-light">Подать заявку</a>
-            <a href="#learnmore" class="button is-large is-dark">Узнать больше</a>
+            <a href="{% url 'quote' %}" class="button is-large is-light"
+              >Подать заявку</a
+            >
+            <a href="#learnmore" class="button is-large is-dark"
+              >Узнать больше</a
+            >
           </div>
         </div>
         <div class="column is-centered is-hidden-mobile">
@@ -72,158 +77,33 @@
 <!--Steps Section-->
 
 {% block steps %}
-<section class="has-background-dark pt-6 pb-6">
+<section class="has-background-dark pt-6 pb-6" id="process">
   <div class="container has-text-light">
     <h2 class="title has-text-light has-text-centered">
       Процесс получения убежища
     </h2>
     <!--Row-->
-    <div class="columns is-vcentered">
+    {% for key, value in steps.items %}
+    <div class="columns is-vcentered versetzt">
       <div class="column">
         <article class="message is-info">
           <div class="message-header">
-            <h3 class="title has-text-light is-4">
-              Шаг 1: Встреча в аэропорту и сопровождение
-            </h3>
+            <h3 class="title has-text-light is-4">{{ value.title}}</h3>
           </div>
           <div class="message-body">
-            <p class="mb-2">
-              Представители нашей фирмы помогут Вам с подбором билетов до
-              аэропорта Дюссельдорфа или Кёльна (Федеральная земля Северный
-              Рейн-Вестфалия) и организуют встречу в день Вашего прилёта. Далее
-              мы доставим Вас в место временного пребывания, где Вы сможете
-              поесть, отдохнуть и принять душ с дороги.
-            </p>
-            <p class="mb-2">
-              Под местом временного пребывания подразумевается отдельная комната
-              у одного из наших волонтёров, в немецкой семье или обычный хостел.
-            </p>
-          </div>
-        </article>
-      </div>
-      <div class="column"></div>
-    </div>
-    <!--Row-->
-    <div class="columns is-vcentered">
-      <div class="column"></div>
-      <div class="column">
-        <article class="message is-info">
-          <div class="message-header">
-            <h3 class="title has-text-light is-4">
-              Шаг 2: Подготовка необходимых документов
-            </h3>
-          </div>
-          <div class="message-body">
-            <p class="mb-2">
-              После Вашего приезда мы поможем Вам собрать полный пакет
-              документов. Пока Вы отдыхаете, мы займёмся переводами на немецкий.
-              В идеале всё, что должно быть переведено, можно заранее выслать
-              нам по электронной почте.
-            </p>
-            <ul class="ml-4" style="list-style: circle">
-              <li>(обязательно) паспорт с действующей шенгенской визой</li>
-              <li>
-                (обязательно) заявление на получение убежища на немецком языке с
-                датой и подписью заявителя
-              </li>
-              <li>
-                (обязательно) краткая биография в виде таблицы, содержащая
-                информацию о месте проживания, учебе и работе за последние 10
-                лет
-              </li>
-              <li>распечатка банковского счёта</li>
-              <li>свидетельство о браке</li>
-              <li>свидетельство о рождении</li>
-              <li>диплом об образовании</li>
-              <li>военный билет</li>
+            <p class="mb-2">{{ value.text1 }}</p>
+            <p class="mb-2">{{ value.text2 }}</p>
+            <ul class="ml-4">
+              {% for item in value.list %}
+              <li>{{ item }}</li>
+              {% endfor %}
             </ul>
           </div>
         </article>
       </div>
-    </div>
-    <!--Row-->
-    <div class="columns is-vcentered">
-      <div class="column">
-        <article class="message is-info">
-          <div class="message-header">
-            <h3 class="title has-text-light is-4">
-              Шаг 3: Подача заявления на убежище
-            </h3>
-          </div>
-          <div class="message-body">
-            <p class="mb-2">
-              Как только все документы будут готовы, наши сотрудники в
-              зависимости от Вашего местоположения пойдут с Вами в ближайшее
-              ведомство по делам иностранцев (Ausländeramt) или сразу отправятся
-              с Вами в пункт приёма беженцев в городе Bochum (NRW). Там
-              происходит подача документов и сдача отпечатков пальцев.
-            </p>
-          </div>
-        </article>
-      </div>
       <div class="column"></div>
     </div>
-    <!--Row-->
-    <div class="columns is-vcentered">
-      <div class="column"></div>
-      <div class="column">
-        <article class="message is-info">
-          <div class="message-header">
-            <h3 class="title has-text-light is-4">
-              Шаг 4: Оформление жилья и соцпомощи
-            </h3>
-          </div>
-          <div class="message-body">
-            <p class="mb-2">
-              Поскольку скорее всего у Вас не будет своего жилья в Германии,
-              либо знакомых, которые смогут Вас принять, мы оформим Вам
-              бесплатное социальное жильё, в котором Вы сможете жить, пока идёт
-              рассмотрение заявки на получение убежища. У Вас будет полная
-              свобода перемещения. Единственные два ограничения: обязательство
-              ночевать в социальном жилье и запрет на пересечение границы
-              Германии, пока идёт процесс оформления убежища.
-            </p>
-            <p class="mb-2">
-              Также, до окончания процесса подачи, который может затянуться на
-              несколько недель, у Вас не будет права на работу. Поэтому, мы
-              оформим Вам социальную помощь, которую Германия предоставляет всем
-              нуждающимся. На август 2022 года размер соцпомощи составляет 360
-              евро на человека в месяц. Помимо этого, будут бесплатно
-              предоставлены медицинская страховка и горячее питание.
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-    <!--Row-->
-    <div class="columns is-vcentered">
-      <div class="column">
-        <article class="message is-info">
-          <div class="message-header">
-            <h3 class="title has-text-light is-4">
-              Шаг 5: Получение статуса беженца
-            </h3>
-          </div>
-          <div class="message-body">
-            <p class="mb-2">
-              При правильной подаче документов с помощью наших юристов, в
-              среднем процесс получения убежища может занять от 2 до 6 недель.
-              Длительность зависит от количества заявителей, а также от пакета
-              документов.
-            </p>
-            <p class="mb-2">
-              Как только процесс подачи будет завершен, Вы получите разрешение
-              на работу, а также немецкий документ для поездок, с которым Вы
-              сможете передвигаться по миру наравне с гражданами Германии.
-              Социальная помощь (360 евро в месяц на человека + компенсация
-              арендной платы) будет Вам сохранена до Вашего трудоустройства.
-              Также Вы получите возможность посещать курсы немецкого языка.
-            </p>
-          </div>
-        </article>
-      </div>
-      <div class="column"></div>
-    </div>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}
@@ -231,79 +111,28 @@
 <!--Services Section-->
 
 {% block services %}
-<section class="pt-6 pb-6 has-background-light">
+<section class="pt-6 pb-6 has-background-light" id="services">
   <div class="container">
     <h2 class="title has-text-centered">Дополнительные услуги</h2>
     <p class="subtitle has-text-centered">
       Мы всегда рады поделиться с Вами нашими знаниями и опытом
     </p>
-    <!--Columns-->
-    <div class="columns">
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">
-              Юридическая консультация
-            </h3>
-            <p>
-              Если у Вас есть вопросы или нужна помощь квалифицированных
-              специалистов - запишитесь на онлайн консультацию, и мы Вам
-              поможем!
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">
-              Перевод денег в/из России
-            </h3>
-            <p>
-              Срочно нужно вывести большую сумму денег из России? Мы Вам
-              поможем! Хотите отправить деньги родственникам? Это мы тоже
-              делаем.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">Поиск работы</h3>
-            <p>
-              Если Вы находитесь в поиске работы, но пока не знаете, как и где
-              ее искать - поручите это дело нам.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
+    <div class="tabs is-centered">
+      <ul id="service-tabs">
+        <li class="is-active"><a>Все</a></li>
+        <li><a>Жизнь</a></li>
+        <li><a>Образование</a></li>
+        <li><a>Финансы</a></li>
+      </ul>
     </div>
     <!--Columns-->
     <div class="columns">
-      <div class="column">
+      {% for service in services %}
+      <div class="column is-one-third-desktop">
         <div class="card">
           <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">Признание диплома</h3>
-            <p>
-              У Вас иностранный диплом и Вы хотите работать в Германии? Мы
-              поможем Вам его признать.
-            </p>
+            <h3 class="is-size-4 has-text-weight-bold">{{ service.title }}</h3>
+            <p>{{ service.text }}</p>
           </div>
           <footer class="card-footer">
             <p class="card-footer-item">
@@ -312,97 +141,7 @@
           </footer>
         </div>
       </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">
-              Подбор языковых курсов
-            </h3>
-            <p>
-              Хотите улучшить свой немецкий или же выучить его с нуля? Мы
-              подберем для Вас качественную и недорогую языковую школу с
-              индивидуальным графиком занятий.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">
-              Получение образования
-            </h3>
-            <p>
-              Хотите получить образование в Германии? Мы поможем Вам поступить в
-              немецкий вуз или получить профессиональное техническое
-              образование.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-    </div>
-    <!--Columns-->
-    <div class="columns">
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">
-              Поиск долгосрочного жилья
-            </h3>
-            <p>
-              Ищете себе жилье, но пока не можете его найти? Не беда, мы знаем -
-              как!
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">Покупка недвижимости</h3>
-            <p>
-              Хотите инвестировать в немецкую недвижимость? Мы поможем Вам с
-              юридическим оформлением и переводами.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">Регистрация брака</h3>
-            <p>
-              Хотите заключить брак в Германии или же хотите признать в Германии
-              свой иностранный брак? Мы подскажем, как.
-            </p>
-          </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

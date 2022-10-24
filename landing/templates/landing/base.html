@@ -75,34 +75,67 @@
     </section>
 
     <!--Block-->
-    {% block quote%} {% endblock %} 
-    
-    <!--Block-->
-    {% block hero %} {% endblock %} 
-    
-    <!--Block-->
-    {% block learn_more %} {% endblock %} 
-    
-    <!--Block-->
-    {% block steps %} {% endblock %} 
-    
-    <!--Block-->
-    {% block services %} {% endblock %} 
+    {% block quote%} {% endblock %}
 
     <!--Block-->
-    {% block testimonials %} {% endblock %} 
+    {% block hero %} {% endblock %}
 
     <!--Block-->
-    {% block faq %} {% endblock %} 
+    {% block learn_more %} {% endblock %}
 
     <!--Block-->
-    {% block about %} {% endblock %} 
+    {% block steps %} {% endblock %}
+
+    <!--Block-->
+    {% block services %} {% endblock %}
+
+    <!--Block-->
+    {% block testimonials %} {% endblock %}
+
+    <!--Block-->
+    {% block faq %} {% endblock %}
+
+    <!--Block-->
+    {% block about %} {% endblock %}
 
     <!--Block-->
     {% block contact %} {% endblock %}
 
-    <footer class="pt-6 pb-6 has-background-dark">
-      <div class="container">Footer</div>
+    <footer class="pt-6 pb-6 has-background-dark has-text-light">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <a class="title has-text-light" href="#">Start-In-Germany</a>
+            <p>Юридическая помощь в Германии</p>
+            <ul id="social">
+              <li>PH</li>
+              <li>EM</li>
+              <li>TG</li>
+              <li>IA</li>
+            </ul>
+            <a class="button is-dark is-inverted" href="{% url 'quote' %}">
+              <span>Подать заявку</span>
+            </a>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="is-size-4">Ссылки</h3>
+            <ul class="is-light">
+              <li><a class="has-text-light is-size-5 has-text-centered {% if navbar == 'home' %} is-active {% endif %}" href="{% url 'home' %}">Главная</a></li>
+              <li><a class="has-text-light is-size-5 {% if navbar == 'services' %} is-active {% endif %}" href="{% url 'services' %}">Услуги</a></li>
+              <li><a class="has-text-light is-size-5 {% if navbar == 'about' %} is-active {% endif %}" href="{% url 'about' %}">О нас</a></li>
+              <li><a class="has-text-light is-size-5 {% if navbar == 'contact' %} is-active {% endif %}" href="{% url 'contact' %}">Контакт</a></li>
+            </ul>
+          </div>
+          <div class="column has-text-centered">
+            <h3 class="is-size-4">Newsletter</h3>
+            <form action="" method="POST">
+              <input type="email" id="newsletter" />
+              <input class="pointer" type="submit" value="Подписаться" />
+            </form>
+          </div>
+        </div>
+        <div class="has-text-centered" id="copyright">© 2017-2022 | Все права защищены</div>
+      </div>
     </footer>
   </body>
 </html>
