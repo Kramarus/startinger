@@ -2,37 +2,40 @@
 
 <!--Hero Section-->
 {% block hero %}
-<section class="hero is-dark" style="height: 90vh">
-  <div class="hero-body">
-    <div class="container has-text-left">
-      <div class="columns is-vcentered pt-5 pb-5">
-        <div class="column is-two-thirds-tablet">
-          <h1 class="title">
+<section class="teal" style="height: 90vh">
+  <div id="hero-body">
+
+      <div class="container row white-text" id="hero-content">
+        <div class="col l8" >
+          <h2 class="title">
             <span>Помощь</span> <span>с получением</span> <span>убежища</span>
             <span>в Германии</span> <span>для граждан России</span>
-          </h1>
-          <p class="subtitle">
+          </h2>
+          <h5 class="subtitle">
             Полный комплект услуг: от встречи в аэропорту и до получения
             бесплатного жилья и ежемесячного денежного пособия
-          </p>
-          <div class="buttons">
-            <a href="{% url 'quote' %}" class="button is-large is-light"
+          </h5>
+          <div id="hero-buttons">
+            <a class="btn btn-large waves-effect orange" href="{% url 'quote' %}"
               >Подать заявку</a
             >
-            <a href="#learnmore" class="button is-large is-dark"
+            <a
+              class="btn btn-large white black-text"
+              href="#learnmore"
               >Узнать больше</a
             >
           </div>
         </div>
-        <div class="column is-centered is-hidden-mobile">
+        <div class="col l4" id="hero-image">
           <img
-            class="image m-auto"
+            class=""
+            width="100%"
             src="{% static '/landing/images/germany.svg' %}"
             alt="Germany"
           />
         </div>
       </div>
-    </div>
+
   </div>
 </section>
 {% endblock %}
@@ -40,34 +43,37 @@
 <!--Learn more Section-->
 
 {% block learn_more %}
-<section class="has-background-light pt-6 pb-6" id="learnmore">
+<section class="" id="learnmore">
   <div class="container">
-    <h2 class="title has-text-centered">
+    <h3 class="title center-align">
       Получение убежища в Германии для граждан России
-    </h2>
-    <p class="subtitle has-text-centered">
+    </h3>
+    <p class="subtitle center-align">
       Всё, что Вам необходимо знать для принятия решения.
     </p>
-    <div class="columns is-vcentered">
-      <div class="column">
+    <div class="row valign-wrapper">
+      <div class="col l6">
         <img
+          id="learnmore-img"
           src="{% static '/landing/images/asylantrag.jpg' %}"
           alt="Asylantrag"
         />
       </div>
-      <div class="column">
-        <p class="mb-2">
+      <div class="col l6">
+        <div class="">
+          <p class="">
           (Такого-то) сентября правительство Германии приняло решение о
           предоставлении убежища россиянам, бегущим от мобилизации, а также всем
           тем, кто недоволен установившимся в России политическим режимом.
         </p>
-        <p class="mb-2">
+        <p class="">
           Согласно параграфу ## Gesetzbuch от такого то числа, теперь граждане
           России также могут рассчитывать на получение социальной помощи в
           размере не менее 360 евро на человека, а также предоставление
           бесплатного социального жилья, либо компенсацию расходов на аренду
           самостоятельно найденного жилья
         </p>
+        </div>
       </div>
     </div>
   </div>
@@ -77,18 +83,18 @@
 <!--Steps Section-->
 
 {% block steps %}
-<section class="has-background-dark pt-6 pb-6" id="process">
-  <div class="container has-text-light">
-    <h2 class="title has-text-light has-text-centered">
+<section class="teal white-text" id="process">
+  <div class="container">
+    <h2 class="title center-align">
       Процесс получения убежища
     </h2>
     <!--Row-->
     {% for key, value in steps.items %}
-    <div class="columns is-vcentered versetzt">
-      <div class="column">
+    <div class="row versetzt valign-wrapper">
+      <div class="col l6">
         <article class="message is-info">
           <div class="message-header">
-            <h3 class="title has-text-light is-4">{{ value.title}}</h3>
+            <h3 class="title">{{ value.title}}</h3>
           </div>
           <div class="message-body">
             <p class="mb-2">{{ value.text1 }}</p>
@@ -101,7 +107,9 @@
           </div>
         </article>
       </div>
-      <div class="column"></div>
+      <div class="col l6 process-img">
+        <img src="{% static value.imgpath %}" alt="Alt">
+      </div>
     </div>
     {% endfor %}
   </div>
@@ -111,34 +119,32 @@
 <!--Services Section-->
 
 {% block services %}
-<section class="pt-6 pb-6 has-background-light" id="services">
+<section class="" id="services">
   <div class="container">
-    <h2 class="title has-text-centered">Дополнительные услуги</h2>
-    <p class="subtitle has-text-centered">
+    <h2 class="title center-align">Дополнительные услуги</h2>
+    <p class="subtitle center-align">
       Мы всегда рады поделиться с Вами нашими знаниями и опытом
     </p>
-    <div class="tabs is-centered">
+    <!-- <div class="tabs is-centered">
       <ul id="service-tabs">
         <li class="is-active"><a>Все</a></li>
         <li><a>Жизнь</a></li>
         <li><a>Образование</a></li>
         <li><a>Финансы</a></li>
       </ul>
-    </div>
-    <!--Columns-->
-    <div class="columns">
+    </div> -->
+    <!--row-->
+    <div class="row">
       {% for service in services %}
-      <div class="column is-one-third-desktop">
-        <div class="card">
+      <div class="col l4">
+        <div class="card teal white-text">
           <div class="card-content">
-            <h3 class="is-size-4 has-text-weight-bold">{{ service.title }}</h3>
-            <p>{{ service.text }}</p>
+            <h5 class="">{{ service.title }}</h5>
+            <p class="service-text">{{ service.text }}</p>
           </div>
-          <footer class="card-footer">
-            <p class="card-footer-item">
-              <span> Подробнее </span>
-            </p>
-          </footer>
+          <div class="card-action center-align">
+              <a class=""> Подробнее </a>
+          </div>
         </div>
       </div>
       {% endfor %}
@@ -152,9 +158,9 @@
 
 {% block testimonials %}
 
-<section class="pt-6 pb-6 has-background-dark">
+<section class="teal white-text">
   <div class="container">
-    <h2 class="title has-text-light has-text-centered">Наши клиенты о нас</h2>
+    <h2 class="title has-text-light center-align">Наши клиенты о нас</h2>
   </div>
 </section>
 {% endblock %}
@@ -162,9 +168,9 @@
 <!--FAQ Section-->
 
 {% block faq %}
-<section class="pt-6 pb-6 has-background-light">
+<section class="">
   <div class="container">
-    <h2 class="title has-text-dark has-text-centered">
+    <h2 class="title has-text-dark center-align">
       Часто задаваемые вопросы
     </h2>
   </div>

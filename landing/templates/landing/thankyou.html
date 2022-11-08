@@ -1,0 +1,14 @@
+{% extends "landing/base.html" %} {% load static %} {% block contact %}
+<section class="teal" id="thankyou">
+  <div class="container center-align white-text">
+    <h2 class="title">Спасибо!</h2>
+    <h4>Ваш запрос успешно отправлен</h4>
+    <div>
+      <img src="{% static '/landing/images/success.svg' %}" alt="success" />
+    </div>
+    <div>
+      <a href="{% url 'home' %}"><button class="btn grey">На главную</button></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -3,7 +3,12 @@
 {% block contact %}
 <section class="has-background-light">
     <div class="container">
-        <h2 class="title has-text-centered pt-6 pb-6">Контакты</h2>
+        <h2 class="title">Контакты</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn" type="submit" value="Отправить" />
+        </form>
     </div>
 </section>
 {% endblock %}

@@ -8,71 +8,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Startinger</title>
     <!--Bulma-->
-    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'landing/css/style.css' %}" /> -->
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="{% static 'landing/css/style.css' %}">
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   </head>
   <body>
-    <section class="hero is-dark is-large">
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container">
-            <div class="navbar-brand">
-              <a
-                class="navbar-item title is-4 p-auto"
-                href="#"
-                style="height: 100%"
-                >Start-In-Germany</a
-              >
-              <span class="navbar-burger" data-target="navbarMenuHeroB">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-
-            <p class="navbar-item has-text-centered">
-              Юридическая помощь в Германии
-            </p>
-
-            <div id="navbarMenuHeroB" class="navbar-menu">
-              <div class="navbar-end">
-                <a
-                  class="navbar-item {% if navbar == 'home' %} is-active {% endif %}"
-                  href="{% url 'home' %}"
-                >
-                  Главная
-                </a>
-                <a
-                  class="navbar-item {% if navbar == 'services' %} is-active {% endif %}"
-                  href="{% url 'services' %}"
-                >
-                  Услуги
-                </a>
-                <a
-                  class="navbar-item {% if navbar == 'about' %} is-active {% endif %}"
-                  href="{% url 'about' %}"
-                >
-                  О нас
-                </a>
-                <a
-                  class="navbar-item {% if navbar == 'contact' %} is-active {% endif %}"
-                  href="{% url 'contact' %}"
-                >
-                  Контакты
-                </a>
-                <span class="navbar-item">
-                  <a
-                    class="button is-dark is-inverted"
-                    href="{% url 'quote' %}"
-                  >
-                    <span>Подать заявку</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </nav>
+    <nav class="teal">
+      <div class="nav-wrapper container">
+        <a class="brand-logo" href="#" style="height: 100%"
+          ><span class="">Start-</span><span class="">In-</span
+          ><span class="">Germany</span></a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="{% if navbar == 'home' %} active {% endif %}">
+            <a href="{% url 'home' %}">Главная</a>
+          </li>
+          <li class="{% if navbar == 'services' %} active {% endif %}">
+            <a href="{% url 'services' %}"> Услуги </a>
+          </li>
+          <li class="{% if navbar == 'about' %} active {% endif %}">
+            <a href="{% url 'about' %}"> О нас </a>
+          </li>
+          <li class="{% if navbar == 'contact' %} active {% endif %}">
+            <a href="{% url 'contact' %}"> Контакты </a>
+          </li>
+          <li>
+            <a class="btn waves-effect waves-light pulse orange" href="{% url 'quote' %}">
+              <span>Подать заявку</span>
+            </a>
+          </li>
+        </ul>
       </div>
-    </section>
+    </nav>
+
+    <!-- <p class="">Юридическая помощь в Германии</p> -->
 
     <!--Block-->
     {% block quote%} {% endblock %}
@@ -101,40 +79,67 @@
     <!--Block-->
     {% block contact %} {% endblock %}
 
-    <footer class="pt-6 pb-6 has-background-dark has-text-light">
+    <footer class="teal">
       <div class="container">
-        <div class="columns">
-          <div class="column">
-            <a class="title has-text-light" href="#">Start-In-Germany</a>
+        <div class="row white-text">
+          <div class="col l4">
+            <h4 class="brand-logo white-text" href="#">Start-In-Germany</h4>
             <p>Юридическая помощь в Германии</p>
             <ul id="social">
-              <li>PH</li>
-              <li>EM</li>
-              <li>TG</li>
-              <li>IA</li>
+              <li><i class="fa-sharp fa-solid fa-phone"></i></li>
+              <li><i class="fa-regular fa-envelope"></i></li>
+              <li><i class="fa-brands fa-telegram"></i></li>
+              <li><i class="fa-brands fa-instagram"></i></li>
             </ul>
-            <a class="button is-dark is-inverted" href="{% url 'quote' %}">
+            <a class="btn waves-effect pulse orange" href="{% url 'quote' %}">
               <span>Подать заявку</span>
             </a>
           </div>
-          <div class="column has-text-centered">
-            <h3 class="is-size-4">Ссылки</h3>
+          <div class="col l4">
+            <h4 class="">Ссылки</h4>
             <ul class="is-light">
-              <li><a class="has-text-light is-size-5 has-text-centered {% if navbar == 'home' %} is-active {% endif %}" href="{% url 'home' %}">Главная</a></li>
-              <li><a class="has-text-light is-size-5 {% if navbar == 'services' %} is-active {% endif %}" href="{% url 'services' %}">Услуги</a></li>
-              <li><a class="has-text-light is-size-5 {% if navbar == 'about' %} is-active {% endif %}" href="{% url 'about' %}">О нас</a></li>
-              <li><a class="has-text-light is-size-5 {% if navbar == 'contact' %} is-active {% endif %}" href="{% url 'contact' %}">Контакт</a></li>
+              <li>
+                <a
+                  class="white-text is-size-5 center-align {% if navbar == 'home' %} is-active {% endif %}"
+                  href="{% url 'home' %}"
+                  >Главная</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text is-size-5 {% if navbar == 'services' %} is-active {% endif %}"
+                  href="{% url 'services' %}"
+                  >Услуги</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text is-size-5 {% if navbar == 'about' %} is-active {% endif %}"
+                  href="{% url 'about' %}"
+                  >О нас</a
+                >
+              </li>
+              <li>
+                <a
+                  class="white-text is-size-5 {% if navbar == 'contact' %} is-active {% endif %}"
+                  href="{% url 'contact' %}"
+                  >Контакт</a
+                >
+              </li>
             </ul>
           </div>
-          <div class="column has-text-centered">
-            <h3 class="is-size-4">Newsletter</h3>
+          <div class="col l4">
+            <h4 class="">Newsletter</h4>
             <form action="" method="POST">
-              <input type="email" id="newsletter" />
+              {% csrf_token %}
+              {{ form.as_p }}
               <input class="pointer" type="submit" value="Подписаться" />
             </form>
           </div>
         </div>
-        <div class="has-text-centered" id="copyright">© 2017-2022 | Все права защищены</div>
+        <div class="center-align white-text" id="copyright">
+          © 2017-2022 | Все права защищены
+        </div>
       </div>
     </footer>
   </body>
